@@ -7,25 +7,26 @@
     <!-- Minimalist CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <style>
-        /* Exact color match mapping from the Jeeves Logo */
+        /* Strict color match mapping overriding standard Pico UI states */
+        [data-theme="light"],
         :root {
-            --pico-primary: #00331D;               /* Logo Dark Green */
-            --pico-primary-background: #00331D;
-            --pico-primary-hover: #0a442a;
-            --pico-primary-border: #00331D;
-            --pico-primary-focus: rgba(0, 51, 29, 0.25);
-            --pico-text-color: #1C2421;            /* Logo Deep Charcoal */
-            --logo-bg: #F7F4EB;                    /* Logo Off-White/Ivory Background */
-            --accent-orange: #E74011;              /* Logo Bowtie Orange */
-            --subtle-border: rgba(0, 51, 29, 0.15);
+            --pico-primary: #00331D !important;               /* Logo Dark Green */
+            --pico-primary-background: #00331D !important;
+            --pico-primary-hover: #0a442a !important;
+            --pico-primary-border: #00331D !important;
+            --pico-primary-focus: rgba(0, 51, 29, 0.25) !important;
+            --pico-text-color: #1C2421 !important;            /* Logo Deep Charcoal */
+            --logo-bg: #F7F4EB !important;                    /* Logo Off-White/Ivory Background */
+            --accent-orange: #E74011 !important;              /* Logo Bowtie Orange */
+            --subtle-border: rgba(0, 51, 29, 0.15) !important;
         }
 
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: var(--logo-bg);
-            color: var(--pico-text-color);
+            background-color: var(--logo-bg) !important;
+            color: var(--pico-text-color) !important;
         }
         
         main {
@@ -37,7 +38,7 @@
 
         /* Seamless card integration matching the page background */
         .hero-card {
-            background: var(--logo-bg);
+            background: var(--logo-bg) !important;
             padding: 2rem;
             width: 100%;
         }
@@ -59,43 +60,43 @@
         .typing-container {
             font-size: 1.35rem;
             font-weight: 600;
-            color: var(--pico-primary);
+            color: var(--pico-primary) !important;
             min-height: 2rem;
             margin-top: 1rem;
         }
 
         .typed-cursor {
-            color: var(--accent-orange);
+            color: var(--accent-orange) !important;
             font-weight: bold;
         }
 
         hr {
             margin: 2rem 0;
-            border-color: var(--subtle-border);
+            border-color: var(--subtle-border) !important;
         }
 
         /* Expanding Menus (Accordions) custom color match */
         details {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid var(--subtle-border);
+            background: rgba(255, 255, 255, 0.4) !important;
+            border: 1px solid var(--subtle-border) !important;
             border-radius: 8px;
             margin-bottom: 1rem;
             transition: border-color 0.3s ease, background-color 0.3s ease;
         }
 
         details[open] {
-            border-color: var(--pico-primary);
-            background: rgba(255, 255, 255, 0.75);
+            border-color: var(--pico-primary) !important;
+            background: rgba(255, 255, 255, 0.75) !important;
         }
 
         details summary {
             font-weight: 700;
-            color: var(--pico-primary);
+            color: var(--pico-primary) !important;
             padding: 1rem;
         }
         
         details summary:hover {
-            background-color: rgba(0, 51, 29, 0.04);
+            background-color: rgba(0, 51, 29, 0.04) !important;
         }
 
         details div.details-content {
@@ -106,38 +107,41 @@
 
         /* Form styling color synchronization to override framework defaults completely */
         input[type="email"], textarea {
-            background-color: rgba(255, 255, 255, 0.6);
-            border-color: var(--subtle-border);
-            color: var(--pico-text-color);
+            background-color: rgba(255, 255, 255, 0.6) !important;
+            border-color: var(--subtle-border) !important;
+            color: var(--pico-text-color) !important;
         }
 
         input[type="email"]:focus, textarea:focus {
             border-color: var(--pico-primary) !important;
-            background-color: #ffffff;
+            background-color: #ffffff !important;
             box-shadow: 0 0 0 4px var(--pico-primary-focus) !important;
         }
 
         button[type="submit"] {
-            background-color: var(--pico-primary);
-            border: none;
-            color: var(--logo-bg);
+            background-color: var(--pico-primary) !important;
+            border: none !important;
+            color: var(--logo-bg) !important;
             font-weight: 700;
         }
 
-        button[type="submit"]:hover {
-            background-color: var(--pico-primary-hover);
+        button[type="submit"]:hover,
+        button[type="submit"]:focus,
+        button[type="submit"]:active {
+            background-color: var(--pico-primary-hover) !important;
+            box-shadow: none !important;
         }
 
         h2, h3 {
-            color: var(--pico-primary);
+            color: var(--pico-primary) !important;
             font-weight: 700;
         }
 
         footer {
-            border-top: 1px solid var(--subtle-border);
+            border-top: 1px solid var(--subtle-border) !important;
             padding: 2rem 0;
             font-size: 0.85rem;
-            background-color: rgba(0, 51, 29, 0.02);
+            background-color: rgba(0, 51, 29, 0.02) !important;
         }
 
         .address-block {
