@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,109 +7,217 @@
     <!-- Minimalist CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <style>
+        /* Custom Premium Color Palette & Brand Style overrides */
+        :root {
+            --pico-primary: #00331D; /* Rich Deep Green */
+            --pico-primary-background: #00331D;
+            --pico-primary-hover: #144d33;
+            --accent-orange: #E74011; /* Vibrant Accent Action Color */
+            --subtle-sage: #7F9C90;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #F8FAF8; /* Soft light backdrop */
+            color: #3C3C33; /* Dark slate text */
         }
+        
         main {
             flex: 1;
             display: flex;
             align-items: center;
+            padding: 3rem 0;
         }
-        .hero-content {
+
+        .hero-card {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 51, 29, 0.05);
+            border: 1px solid rgba(127, 156, 144, 0.15);
             width: 100%;
-            padding: 2rem 0;
         }
+
+        h1 {
+            color: var(--pico-primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Typing Wrapper Styling */
+        .typing-container {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #55554a;
+            min-height: 2rem; /* Prevents layout shifting */
+        }
+
+        .typed-cursor {
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        hr {
+            margin: 2.5rem 0;
+            border-color: rgba(127, 156, 144, 0.2);
+        }
+
+        /* Expanding Menus (Accordions) Styling */
+        details {
+            background: #fdfdfd;
+            border: 1px solid rgba(127, 156, 144, 0.2);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--pico-primary);
+            box-shadow: 0 4px 12px rgba(0, 51, 29, 0.03);
+        }
+
+        details summary {
+            font-weight: 600;
+            color: var(--pico-primary);
+            padding: 1rem;
+        }
+        
+        details summary:hover {
+            background-color: rgba(127, 156, 144, 0.05);
+        }
+
+        details div.details-content {
+            padding: 0 1rem 1rem 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Form Updates */
+        button[type="submit"] {
+            background-color: var(--pico-primary);
+            border: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--pico-primary-hover);
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
         footer {
-            border-top: 1px solid var(--pico-muted-border-color);
-            padding: 2rem 0;
-            font-size: 0.9rem;
+            border-top: 1px solid rgba(127, 156, 144, 0.2);
+            padding: 2.5rem 0;
+            font-size: 0.85rem;
+            background-color: #ffffff;
         }
+
         .address-block {
             font-style: normal;
             line-height: 1.6;
-        }
-        /* Custom cursor styling to fit nicely with Pico CSS */
-        .typed-cursor {
-            color: var(--pico-primary);
-            opacity: 1;
-            animation: blink 0.7s infinite;
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Content -->
+    <!-- Main Content Hub -->
     <main class="container">
-        <div class="hero-content">
-            <hgroup>
+        <div class="hero-card">
+            
+            <!-- HEADER & TYPING EFFECT -->
+            <header style="margin-bottom: 2rem;">
                 <h1>Jeeves Property Management</h1>
-                <!-- The typing effect will target this paragraph -->
-                <p><span id="typed"></span></p>
-            </hgroup>
+                <div class="typing-container">
+                    <span id="typed"></span>
+                </div>
+            </header>
             
             <!-- Hidden strings container for Typed.js -->
             <div id="typed-strings" style="display: none;">
                 <p>Professional Residential Property Management</p>
                 <p>Long-Term Residential Buy-to-Let Portfolios</p>
                 <p>Premium Short-Term Holiday Rentals &amp; Airbnb</p>
-                <p>High-Standard Property Maintenance &amp; Care</p>
+                <p>High-Standard Property Care &amp; Maintenance</p>
             </div>
             
             <hr>
 
-            <section>
-                <h2>Who We Are &amp; What We Do</h2>
-                <p>
-                    Jeeves Property Management structures and oversees a dedicated portfolio of residential real estate investments. 
-                    Our operations span long-term residential buy-to-let assets as well as premium, short-term holiday rentals. 
-                    We focus on delivering high-standard property maintenance, reliable occupancy management, and seamless guest and tenant relations.
-                </p>
+            <!-- EXPANDING MENUS (ACCORDIONS) -->
+            <section style="margin-bottom: 3rem;">
+                <h3 style="color: var(--pico-primary); margin-bottom: 1.5rem;">Our Operations</h3>
+                
+                <details>
+                    <summary>Who We Are &amp; Our Core Focus</summary>
+                    <div class="details-content">
+                        <p>Jeeves Property Management structures, owns, and operates a dedicated portfolio of high-yield residential real estate investments. We mix analytical asset oversight with high-standard hands-on care.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Long-Term Buy-to-Let Assets</summary>
+                    <div class="details-content">
+                        <p>We manage reliable corporate long-term rentals focusing on continuous high occupancy, strict compliance, and excellent tenant retention strategies in prime residential areas.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Short-Term Holiday Rentals &amp; Premium Airbnb</summary>
+                    <div class="details-content">
+                        <p>From unique basement apartments to tourist hotspots, we manage five-star calendar optimization, dynamically priced structures, and seamless guest transitions to maintain elite property performance.</p>
+                    </div>
+                </details>
             </section>
 
+            <hr>
+
+            <!-- CONTACT SECTION -->
             <section>
-                <h2>Contact Us</h2>
-                <p>For investment inquiries, tenancy operations, or booking coordination, please reach out below.</p>
+                <h3 style="color: var(--pico-primary); margin-bottom: 0.5rem;">Connect With Us</h3>
+                <p style="color: #66665c; margin-bottom: 1.5rem;">For tenancy inquiries, investment coordination, or booking logistics, please get in touch.</p>
                 
                 <!-- Secure Formspree Contact Form -->
                 <form action="https://formspree.io/f/xpqvabop" method="POST">
-                    <label>
-                        Your Email Address:
-                        <input type="email" name="email" required placeholder="name@example.com">
-                    </label>
+                    <div class="grid">
+                        <label>
+                            Your Email Address:
+                            <input type="email" name="email" required placeholder="name@example.com">
+                        </label>
+                    </div>
                     <label>
                         Your Message:
-                        <textarea name="message" required placeholder="How can we help you?"></textarea>
+                        <textarea name="message" rows="4" required placeholder="How can our management team assist you?"></textarea>
                     </label>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Submit Inquiry</button>
                 </form>
             </section>
+            
         </div>
     </main>
 
     <!-- Footer with Legal Disclosures -->
-    <footer class="container">
-        <div class="grid">
-            <div>
-                <strong>Jeeves Property Management Ltd</strong><br>
-                <small class="muted-color">Registered in England and Wales</small><br>
-                <small class="muted-color">Company Number: 14303611</small>
-            </div>
-            <div>
-                <strong>Registered Office:</strong>
-                <address class="address-block muted-color">
-                    The Mount<br>
-                    Princess Street<br>
-                    Llangollen<br>
-                    Denbighshire<br>
-                    LL20 8RD
-                </address>
+    <footer>
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <strong style="color: var(--pico-primary);">Jeeves Property Management Ltd</strong><br>
+                    <small class="muted-color">Registered in England and Wales</small><br>
+                    <small class="muted-color">Company Number: 14303611</small>
+                </div>
+                <div>
+                    <strong>Registered Office:</strong>
+                    <address class="address-block muted-color">
+                        The Mount<br>
+                        Princess Street<br>
+                        Llangollen<br>
+                        Denbighshire<br>
+                        LL20 8RD
+                    </address>
+                </div>
             </div>
         </div>
     </footer>
@@ -119,10 +227,10 @@
     <script>
         var typed = new Typed('#typed', {
             stringsElement: '#typed-strings',
-            typeSpeed: 50,      // Speed in milliseconds for typing
-            backSpeed: 30,      // Speed in milliseconds for backspacing
-            backDelay: 2000,    // Time to pause before backspacing
-            loop: true          // Continuously loop through the strings
+            typeSpeed: 45,
+            backSpeed: 25,
+            backDelay: 2200,
+            loop: true
         });
     </script>
 
