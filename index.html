@@ -12,6 +12,8 @@
             --pico-primary: #00331D;               /* Logo Dark Green */
             --pico-primary-background: #00331D;
             --pico-primary-hover: #0a442a;
+            --pico-primary-border: #00331D;
+            --pico-primary-focus: rgba(0, 51, 29, 0.25);
             --pico-text-color: #1C2421;            /* Logo Deep Charcoal */
             --logo-bg: #F7F4EB;                    /* Logo Off-White/Ivory Background */
             --accent-orange: #E74011;              /* Logo Bowtie Orange */
@@ -102,7 +104,7 @@
             line-height: 1.6;
         }
 
-        /* Form styling color synchronization */
+        /* Form styling color synchronization to override framework defaults completely */
         input[type="email"], textarea {
             background-color: rgba(255, 255, 255, 0.6);
             border-color: var(--subtle-border);
@@ -110,8 +112,9 @@
         }
 
         input[type="email"]:focus, textarea:focus {
-            border-color: var(--pico-primary);
+            border-color: var(--pico-primary) !important;
             background-color: #ffffff;
+            box-shadow: 0 0 0 4px var(--pico-primary-focus) !important;
         }
 
         button[type="submit"] {
