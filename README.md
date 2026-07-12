@@ -1,2 +1,2 @@
 # jeevesproperty.co.uk
-Splash page for Jeevs
+Splash page for Jeeves Property Management Ltd
