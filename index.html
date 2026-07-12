@@ -30,6 +30,17 @@
             font-style: normal;
             line-height: 1.6;
         }
+        /* Custom cursor styling to fit nicely with Pico CSS */
+        .typed-cursor {
+            color: var(--pico-primary);
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -39,8 +50,17 @@
         <div class="hero-content">
             <hgroup>
                 <h1>Jeeves Property Management</h1>
-                <p>Professional Residential Property & Rental Management</p>
+                <!-- The typing effect will target this paragraph -->
+                <p><span id="typed"></span></p>
             </hgroup>
+            
+            <!-- Hidden strings container for Typed.js -->
+            <div id="typed-strings" style="display: none;">
+                <p>Professional Residential Property Management</p>
+                <p>Long-Term Residential Buy-to-Let Portfolios</p>
+                <p>Premium Short-Term Holiday Rentals &amp; Airbnb</p>
+                <p>High-Standard Property Maintenance &amp; Care</p>
+            </div>
             
             <hr>
 
@@ -93,6 +113,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts for the Typing Effect -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#typed', {
+            stringsElement: '#typed-strings',
+            typeSpeed: 50,      // Speed in milliseconds for typing
+            backSpeed: 30,      // Speed in milliseconds for backspacing
+            backDelay: 2000,    // Time to pause before backspacing
+            loop: true          // Continuously loop through the strings
+        });
+    </script>
 
 </body>
 </html>
