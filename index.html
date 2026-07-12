@@ -7,51 +7,59 @@
     <!-- Minimalist CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <style>
-        /* Custom Premium Color Palette & Brand Style overrides */
+        /* Exact color match mapping from the Jeeves Logo */
         :root {
-            --pico-primary: #00331D; /* Rich Deep Green */
+            --pico-primary: #00331D;               /* Logo Dark Green */
             --pico-primary-background: #00331D;
-            --pico-primary-hover: #144d33;
-            --accent-orange: #E74011; /* Vibrant Accent Action Color */
-            --subtle-sage: #7F9C90;
+            --pico-primary-hover: #0a442a;
+            --pico-text-color: #1C2421;            /* Logo Deep Charcoal */
+            --logo-bg: #F7F4EB;                    /* Logo Off-White/Ivory Background */
+            --accent-orange: #E74011;              /* Logo Bowtie Orange */
+            --subtle-border: rgba(0, 51, 29, 0.15);
         }
 
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #F8FAF8; /* Soft light backdrop */
-            color: #3C3C33; /* Dark slate text */
+            background-color: var(--logo-bg);
+            color: var(--pico-text-color);
         }
         
         main {
             flex: 1;
             display: flex;
             align-items: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
 
+        /* Seamless card integration matching the page background */
         .hero-card {
-            background: #ffffff;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 51, 29, 0.05);
-            border: 1px solid rgba(127, 156, 144, 0.15);
+            background: var(--logo-bg);
+            padding: 2rem;
             width: 100%;
         }
 
-        h1 {
-            color: var(--pico-primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        /* Header block scaling down the logo gracefully on mobile while keeping it large */
+        .logo-header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        /* Typing Wrapper Styling */
+        .logo-header img {
+            width: 100%;
+            max-width: 480px; /* Enhanced prominent logo sizing */
+            height: auto;
+            display: inline-block;
+        }
+
+        /* Typing Wrapper Styling matching logo font weights */
         .typing-container {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #55554a;
-            min-height: 2rem; /* Prevents layout shifting */
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--pico-primary);
+            min-height: 2rem;
+            margin-top: 1rem;
         }
 
         .typed-cursor {
@@ -60,32 +68,32 @@
         }
 
         hr {
-            margin: 2.5rem 0;
-            border-color: rgba(127, 156, 144, 0.2);
+            margin: 2rem 0;
+            border-color: var(--subtle-border);
         }
 
-        /* Expanding Menus (Accordions) Styling */
+        /* Expanding Menus (Accordions) custom color match */
         details {
-            background: #fdfdfd;
-            border: 1px solid rgba(127, 156, 144, 0.2);
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--subtle-border);
             border-radius: 8px;
             margin-bottom: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
         }
 
         details[open] {
             border-color: var(--pico-primary);
-            box-shadow: 0 4px 12px rgba(0, 51, 29, 0.03);
+            background: rgba(255, 255, 255, 0.75);
         }
 
         details summary {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--pico-primary);
             padding: 1rem;
         }
         
         details summary:hover {
-            background-color: rgba(127, 156, 144, 0.05);
+            background-color: rgba(0, 51, 29, 0.04);
         }
 
         details div.details-content {
@@ -94,27 +102,39 @@
             line-height: 1.6;
         }
 
-        /* Form Updates */
+        /* Form styling color synchronization */
+        input[type="email"], textarea {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-color: var(--subtle-border);
+            color: var(--pico-text-color);
+        }
+
+        input[type="email"]:focus, textarea:focus {
+            border-color: var(--pico-primary);
+            background-color: #ffffff;
+        }
+
         button[type="submit"] {
             background-color: var(--pico-primary);
             border: none;
-            font-weight: 600;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            color: var(--logo-bg);
+            font-weight: 700;
         }
 
         button[type="submit"]:hover {
             background-color: var(--pico-primary-hover);
         }
 
-        button[type="submit"]:active {
-            transform: scale(0.98);
+        h2, h3 {
+            color: var(--pico-primary);
+            font-weight: 700;
         }
 
         footer {
-            border-top: 1px solid rgba(127, 156, 144, 0.2);
-            padding: 2.5rem 0;
+            border-top: 1px solid var(--subtle-border);
+            padding: 2rem 0;
             font-size: 0.85rem;
-            background-color: #ffffff;
+            background-color: rgba(0, 51, 29, 0.02);
         }
 
         .address-block {
@@ -129,13 +149,10 @@
     <main class="container">
         <div class="hero-card">
             
-            <!-- LOGO, HEADER & TYPING EFFECT -->
-            <header style="margin-bottom: 2.5rem; text-align: center;">
-                <div style="max-width: 320px; margin: 0 auto 1.5rem auto;">
-                    <!-- Adjust 'logo.png' match your saved filename -->
-                    <img src="logo.png" alt="Jeeves Property Management Logo" style="width: 100%; height: auto; display: block;">
-                </div>
-                <h1 style="margin-bottom: 0.5rem;">Jeeves Property Management</h1>
+            <!-- LOGO & TYPING SUBHEADER ONLY -->
+            <header class="logo-header">
+                <!-- Ensure your image asset filename matches 'logo.png' below -->
+                <img src="logo.png" alt="Jeeves Property Management">
                 <div class="typing-container">
                     <span id="typed"></span>
                 </div>
@@ -153,7 +170,7 @@
 
             <!-- EXPANDING MENUS (ACCORDIONS) -->
             <section style="margin-bottom: 3rem;">
-                <h3 style="color: var(--pico-primary); margin-bottom: 1.5rem;">Our Operations</h3>
+                <h3>Our Operations</h3>
                 
                 <details>
                     <summary>Who We Are &amp; Our Core Focus</summary>
@@ -181,8 +198,8 @@
 
             <!-- CONTACT SECTION -->
             <section>
-                <h3 style="color: var(--pico-primary); margin-bottom: 0.5rem;">Connect With Us</h3>
-                <p style="color: #66665c; margin-bottom: 1.5rem;">For tenancy inquiries, investment coordination, or booking logistics, please get in touch.</p>
+                <h3>Connect With Us</h3>
+                <p style="margin-bottom: 1.5rem;">For tenancy inquiries, investment coordination, or booking logistics, please get in touch.</p>
                 
                 <!-- Secure Formspree Contact Form -->
                 <form action="https://formspree.io/f/xpqvabop" method="POST">
@@ -209,12 +226,12 @@
             <div class="grid">
                 <div>
                     <strong style="color: var(--pico-primary);">Jeeves Property Management Ltd</strong><br>
-                    <small class="muted-color">Registered in England and Wales</small><br>
-                    <small class="muted-color">Company Number: 14303611</small>
+                    <small>Registered in England and Wales</small><br>
+                    <small>Company Number: 14303611</small>
                 </div>
                 <div>
                     <strong>Registered Office:</strong>
-                    <address class="address-block muted-color">
+                    <address class="address-block">
                         The Mount<br>
                         Princess Street<br>
                         Llangollen<br>
